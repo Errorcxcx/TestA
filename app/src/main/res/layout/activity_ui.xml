@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="15dp"
+    android:orientation="vertical"
+
+    tools:context="com.example.myapplication.com.example.test.UIActivity">
+
+    <Button
+        android:id="@+id/et_btn_1"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:textSize="15sp"
+        android:textColor="#FFAD33"
+        android:text="登录界面"
+        android:background="@drawable/bg_btn_1"
+
+        />
+    <Button
+        android:id="@+id/rb_btn_2"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="RadioButton"
+        android:textSize="15sp"
+
+        android:layout_marginTop="20dp"
+        />
+    <Button
+        android:id="@+id/cb_btn_3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="CheckedBox"
+        android:textSize="15sp"
+        />
+    <Button
+        android:id="@+id/iv_btn_4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="ImageView"
+        android:textSize="15sp"
+        />
+    <Button
+        android:id="@+id/lv_btn_5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="ListView"
+        android:textSize="15sp"
+        />
+    <Button
+        android:id="@+id/gv_btn_6"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="GridView"
+        android:textSize="15sp"
+        />
+    <Button
+        android:id="@+id/wv_btn_7"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="WebView"
+        android:textSize="15sp"
+        />
+    <Button
+        android:id="@+id/toast_btn_8"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Toast"
+        android:textSize="15sp"
+        />
+    <Button
+        android:id="@+id/mvvm_btn_9"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="MVVMHabit"
+        android:textSize="15sp"
+        />
+    <Button
+        android:id="@+id/webimage_btn_10"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="webimage"
+        android:textSize="15sp"
+        />
+
+
+
+</LinearLayout>

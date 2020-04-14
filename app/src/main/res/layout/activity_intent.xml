@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+    <Button
+        android:id="@+id/btn_intent_xian"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="显式Intent"
+        />
+    <Button
+        android:id="@+id/btn_intent_yin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="隐式Intent"
+        />
+    <Button
+        android:id="@+id/btn_intent_yin_1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="隐式-打开浏览器"
+        />
+    <Button
+        android:id="@+id/btn_intent_yin_2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="隐式-拨号"
+        />
+    <Button
+        android:id="@+id/btn_intent_yin_3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="隐式-向下一活动传递数据"
+        />
+    <Button
+        android:id="@+id/btn_intent_yin_4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="隐式-返回数据给上一活动"
+        />
+
+
+
+</LinearLayout>
