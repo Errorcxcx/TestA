@@ -1,106 +1,144 @@
 package com.example.myapplication;
 
 import android.content.Intent;
-import android.graphics.BitmapFactory;
+import android.media.ExifInterface;
+import android.os.Build;
 import android.os.Bundle;
-import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ListView;
 
+import androidx.annotation.RequiresApi;
+import androidx.annotation.UiThread;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.aty.LoginActivity;
+import com.example.databinding.viewmodel.ViewModeOne;
+import com.example.exief.GetExiefMessage;
 import com.example.myapplication.gridview.GridViewActivity;
 import com.example.myapplication.listview.ListViewActivity;
+import com.example.myapplication.util.ButtonListAdapter;
+import com.example.notificationbar.aty.DaoHangActivity;
+import com.example.seaechflowlayout.CustomizeActivity;
+import com.example.search.SearchActivity;
+import com.example.showbeatuy.ShowBeatuyActivity;
+
+import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
 
 public class UIActivity extends AppCompatActivity {
     private static final String TAG = "UIActivity";
-    private Button mBtnTextView ;
-    private Button mBtnRadioButton;
-    private Button mBtnCheckBox;
-    private Button mBtnImageview;
-    private Button mBtnListView;
-    private Button mBtnGridView;
-    private Button mBtnWebView;
-    private Button mBtnToast;
-    private Button mBtnMvvm;
-    private Button mBtnWebImage;
+    private ListView listView;
 
-
+    private List<String> list;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ui);
-        mBtnTextView = (Button)findViewById(R.id.et_btn_1);
-        mBtnRadioButton = (Button)findViewById(R.id.rb_btn_2);
-        mBtnCheckBox = (Button)findViewById(R.id.cb_btn_3);
-        mBtnImageview = (Button)findViewById(R.id.iv_btn_4);
-        mBtnListView = (Button)findViewById(R.id.lv_btn_5);
-        mBtnGridView = (Button)findViewById(R.id.gv_btn_6);
-        mBtnWebView = (Button)findViewById(R.id.wv_btn_7);
-        mBtnToast = (Button)findViewById(R.id.toast_btn_8);
-        mBtnMvvm = (Button)findViewById(R.id.mvvm_btn_9);
-        mBtnWebImage = (Button)findViewById(R.id.webimage_btn_10);
-        setlisteners();
+        listView = findViewById(R.id.listview);
+        list = new ArrayList<>();
+        list.add("登录界面");
+        list.add("RadioButton");
+        list.add("CheckedBox");
+        list.add("ImageView");
+        list.add("ListView");
+        list.add("GridView");
+        list.add("WebView");
+        list.add("Toast");
+        list.add("什么都没有");
+        list.add("webimage");
+        list.add("获取图片exif信息");
+        list.add("databinding");
+        list.add("daohang");
+        list.add("搜索界面");
+        list.add("自动义View");
+        list.add("flexboxlayout");
+        list.add("Beauty");
+        ButtonListAdapter buttonListAdapter = new ButtonListAdapter(this, list, myOnclicker);
+        listView.setAdapter(buttonListAdapter);
+        buttonListAdapter.notifyDataSetChanged();
 
     }
-    public void setlisteners(){
-        OnClick ol = new OnClick();
-        mBtnTextView.setOnClickListener(ol);
-        mBtnRadioButton.setOnClickListener(ol);
-        mBtnCheckBox.setOnClickListener(ol);
-        mBtnImageview.setOnClickListener(ol);
-        mBtnListView.setOnClickListener(ol);
-        mBtnGridView.setOnClickListener(ol);
-        mBtnWebView.setOnClickListener(ol);
-        mBtnToast.setOnClickListener(ol);
-        mBtnMvvm.setOnClickListener(ol);
-        mBtnWebImage.setOnClickListener(ol);
 
-    }
-    private class OnClick implements View.OnClickListener {
+    public ButtonListAdapter.MyOnClickLietener myOnclicker = new ButtonListAdapter.MyOnClickLietener() {
+        @RequiresApi(api = Build.VERSION_CODES.Q)
         @Override
-        public void onClick(View view) {
+        public void myOnclick(int position, View view) {
             Intent intent = null;
-            switch(view.getId()){
-                case  R.id.et_btn_1:
-                    intent = new Intent(UIActivity.this,EditTextActivity.class);
+            switch (position) {
+                case 0:
+                    intent = new Intent(UIActivity.this, EditTextActivity.class);
                     Log.d("data", "editactivity: ");
                     break;
-                case  R.id.rb_btn_2:
-                    intent = new Intent(UIActivity.this,RadioButtonActivity.class);
+                case 1:
+                    intent = new Intent(UIActivity.this, RadioButtonActivity.class);
                     Log.d("data", "radiobuttonactivity: ");
                     break;
-                case  R.id.cb_btn_3:
+                case 2:
                     intent = new Intent(UIActivity.this, CheckBoxActivity.class);
                     break;
-                case  R.id.iv_btn_4:
+                case 3:
                     intent = new Intent(UIActivity.this, ImageviewActivity.class);
                     break;
-                case R.id.lv_btn_5:
+                case 4:
                     intent = new Intent(UIActivity.this, ListViewActivity.class);
                     break;
-                case R.id.gv_btn_6:
+                case 5:
                     intent = new Intent(UIActivity.this, GridViewActivity.class);
                     break;
-                case R.id.wv_btn_7:
-                    intent = new Intent(UIActivity.this,WebViewActivity.class);
+                case 6:
+                    intent = new Intent(UIActivity.this, WebViewActivity.class);
                     break;
-                case R.id.toast_btn_8:
+                case 7:
                     intent = new Intent(UIActivity.this, ToastActivity.class);
                     break;
-                case R.id.mvvm_btn_9:
-                    intent = new Intent(UIActivity.this, LoginActivity.class);
+                case 8:
                     break;
-                case R.id.webimage_btn_10:
+                case 9:
                     intent = new Intent(UIActivity.this, BitmapActivity.class);
+                    break;
+                case 10:
+                    try {
+                        ExifInterface exifInterface = new ExifInterface(new File("/storage/emulated/0/DCIM/Camera/1.jpg"));
+                        GetExiefMessage.getInstance().judgeImageAperture(exifInterface, "1111");
+                        GetExiefMessage.getInstance().judgePhotoOtherInfo(exifInterface);
+                        GetExiefMessage.getInstance().judgeImageISO(exifInterface, 50000, 0);
+                        GetExiefMessage.getInstance().isFlashMode("/storage/emulated/0/DCIM/Camera/1.jpg");
+                        Set<String> entrySet = GetExiefMessage.exifMap.keySet();
+                        for (String key :
+                                entrySet) {
+                            Log.d("getMessage", key + "----" + GetExiefMessage.exifMap.get(key));
+                        }
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                case 11:
+                    intent = new Intent(UIActivity.this, ViewModeOne.class);
+                    break;
+                case 12:
+                    intent = new Intent(UIActivity.this, DaoHangActivity.class);
+                    break;
+                case 13:
+                    intent = new Intent(UIActivity.this, SearchActivity.class);
+                    break;
+                case 14:
+                    intent = new Intent(UIActivity.this, CustomizeActivity.class);
+                    break;
+                case 15:
+                    intent = new Intent(UIActivity.this,FlexBoxLayoutActivity.class);
+                    break;
+                case 16:
+                    intent = new Intent(UIActivity.this, ShowBeatuyActivity.class);
                     break;
 
             }
             startActivity(intent);
         }
-    }
+
+
+    };
 }

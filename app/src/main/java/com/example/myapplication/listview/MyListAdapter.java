@@ -1,6 +1,7 @@
 package com.example.myapplication.listview;
 
 import android.content.Context;
+import android.graphics.BitmapFactory;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,15 +10,18 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.myapplication.R;
+import com.example.myapplication.util.GetUrlBitmap;
+
+import java.util.List;
 
 public class MyListAdapter extends BaseAdapter {
     private Context context;
     private LayoutInflater mLayoutInflater;
-
+    private GetUrlBitmap getUrlBitmap;
+    private List mList;
     public MyListAdapter(Context context) {
         this.context = context;
         mLayoutInflater = LayoutInflater.from(context);
-
     }
 
     @Override
@@ -56,6 +60,7 @@ public class MyListAdapter extends BaseAdapter {
         holder.tvTitle.setText("这是标题");
         holder.tvTime.setText("2019-08-11");
         holder.tvContent.setText("这是内容");
+//        holder.imageView.setImageBitmap(BitmapFactory.decodeByteArray(getUrlBitmap.getBitmapBytes("sss"),0,getUrlBitmap.getBitmapBytes("sss").length));
         return view;
     }
 }

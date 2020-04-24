@@ -7,13 +7,17 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:requestLegacyExternalStorage="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:usesCleartextTraffic="true"
-
-        android:theme="@style/AppTheme">
-
-        <activity android:name=".BitmapActivity"></activity>
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true">
+        <activity android:name="com.example.showbeatuy.ShowBeatuyActivity"></activity>
+        <activity android:name=".FlexBoxLayoutActivity" />
+        <activity android:name="com.example.seaechflowlayout.CustomizeActivity" />
+        <activity android:name="com.example.search.SearchActivity" />
+        <activity android:name="com.example.notificationbar.aty.DaoHangActivity" />
+        <activity android:name=".BitmapActivity" />
         <activity android:name=".RuntimePermission.CallActivity" />
         <activity android:name=".SuccessActivity" />
         <activity android:name=".FileActivity" />
@@ -55,10 +59,12 @@
         <activity android:name=".listview.ListViewActivity" />
         <activity android:name=".gridview.GridViewActivity" />
         <activity android:name=".UIActivity" />
-        <activity android:name="com.example.aty.LoginActivity" />
+        <activity android:name="com.example.databinding.viewmodel.ViewModeOne" />
     </application>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
     <uses-permission android:name="android.permission.INTERNET" />
 
-    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
 </manifest>

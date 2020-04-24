@@ -4,14 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="15dp"
-    android:orientation="vertical"
-
-    tools:context="com.example.myapplication.UIActivity">
-    <ListView
-        android:id="@+id/listview"
+    tools:context="com.example.showbeatuy.ShowBeatuyActivity">
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/beauty_recycler"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"></ListView>
-
+        android:layout_height="match_parent"
+        />
 
 </LinearLayout>
