@@ -27,7 +27,7 @@
             android:layout_height="wrap_content"
             android:text="HelloWord"
             android:textSize="15sp"
-            android:textColor="@color/colorBlack"
+            android:textColor="@color/black"
             />
 
         <TextView
@@ -36,7 +36,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:text="2019-08-9"
-            android:textColor="@color/colorBlack"
+            android:textColor="@color/black"
             android:textSize="20sp" />
         <TextView
             android:id="@+id/tv_content"

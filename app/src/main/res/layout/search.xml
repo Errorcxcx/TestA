@@ -1,34 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+    android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     >
    <LinearLayout
        android:orientation="horizontal"
-       android:background="#80ff00"
+       android:background="@color/blue"
        android:layout_width="match_parent"
        android:layout_height="50dp">
-       <LinearLayout
+
+
+           <ImageView
+               android:layout_width="30dp"
+               android:layout_height="match_parent"
+               android:layout_gravity="center_vertical"
+               android:paddingLeft="10dp"
+               android:src="@drawable/search" />
+       <RelativeLayout
            android:layout_margin="10dp"
-           android:background="@drawable/edittext"
            android:layout_weight="1"
            android:layout_width="0dp"
            android:layout_height="match_parent">
 
-           <ImageView
-               android:layout_width="22dp"
-               android:layout_height="match_parent"
-               android:layout_gravity="center_vertical"
-               android:padding="5dp"
-               android:src="@drawable/search" />
-
            <EditText
                android:id="@+id/input_search_content_et"
-               android:layout_margin="5dp"
-               android:textSize="14sp"
+               android:layout_margin="2dp"
+               android:textSize="20sp"
                android:singleLine="true"
+               android:gravity="center"
                android:imeOptions="actionSearch"
                android:layout_gravity="center_vertical"
                android:background="@drawable/edittext"
@@ -37,12 +38,12 @@
                android:hint="请输入你要搜索的内容"/>
 
 
-   </LinearLayout>
+   </RelativeLayout>
        <TextView
            android:id="@+id/search_content_cancel_tv"
            android:padding="10dp"
-           android:layout_gravity="center_vertical"
            android:gravity="center"
+           android:layout_marginRight="14dp"
            android:layout_width="wrap_content"
            android:layout_height="match_parent"
            android:textSize="18sp"

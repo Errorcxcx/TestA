@@ -1,30 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     >
+    <androidx.appcompat.widget.Toolbar
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/toolbar"
+        android:theme="@style/MyToolBarTheme"
+        app:popupTheme="@style/ToolbarPopupTheme"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@color/blue">
 
-    <Button
-        android:id="@+id/btn_ui"
+    </androidx.appcompat.widget.Toolbar>
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/fram_container"
+        android:layout_below="@id/toolbar"
+        android:layout_above="@id/bottom_navigation_bar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </androidx.viewpager.widget.ViewPager>
+    <com.ashokvarma.bottomnavigation.BottomNavigationBar
+        android:id="@+id/bottom_navigation_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="UI" />
-    <Button
-        android:id="@+id/btn_test"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="练习"
-        />
-    <Button
-        android:id="@+id/file"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="文件操作"
-        />
-    <Button
-        android:id="@+id/runtime_permission"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="运行时权限"/>
-</LinearLayout>
+        android:layout_alignParentBottom="true">
+    </com.ashokvarma.bottomnavigation.BottomNavigationBar>
+</RelativeLayout>

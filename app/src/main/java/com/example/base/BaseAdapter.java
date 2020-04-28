@@ -12,7 +12,7 @@ import java.util.List;
 
 public abstract class BaseAdapter<VH extends BaseVH> extends RecyclerView.Adapter<VH> {
     public Context context;
-    public List list;
+    public List<Object> list;
 
     public BaseAdapter(Context context) {
         this.context = context;

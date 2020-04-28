@@ -1,7 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#008577</color>
-    <color name="colorPrimaryDark">#00574B</color>
-    <color name="colorAccent">#D81B60</color>
-    <color name="colorBlack">#000000</color>
+    <color name="colorPrimary">#6200EE</color>
+    <color name="colorPrimaryDark">#3700B3</color>
+    <color name="colorAccent">#03DAC5</color>
+    <color name="orange">#FFC107</color>
+    <color name="green">#259B24</color>
+    <color name="red">#ff2121</color>
+    <color name="purple">#9C27B0</color>
+    <color name="blue">#03A9F4</color>
+    <color name="white">#FFFFFF</color>
+    <color name="lime">#CDDC39</color>
+    <color name="black_9">#999999</color>
+    <color name="black_3">#333333</color>
+    <color name="black_6">#666666</color>
+    <color name="default_gray">#cdcdcd</color>
+    <color name="default_gray_hint">#fafafa</color>
+    <color name="gray_a5">#a5a5a5</color>
+    <color name="gray_cf">#cfcfcf</color>
+    <color name="default_bg">#546383</color>
+    <color name="default_bg_hint">#8d9ab6</color>
+    <color name="default_tv">#061f3e</color>
+    <color name="default_blue">#3b94ff</color>
+    <color name="wait_color">#4c4c4c</color>
+    <color name="default_orange">#ff8040</color>
+    <color name="default_orange_light">#ffc6aa</color>
+    <color name="default_orange_hint">#ff9968</color>
 </resources>

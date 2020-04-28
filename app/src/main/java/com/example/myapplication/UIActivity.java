@@ -19,6 +19,7 @@ import com.example.myapplication.gridview.GridViewActivity;
 import com.example.myapplication.listview.ListViewActivity;
 import com.example.myapplication.util.ButtonListAdapter;
 import com.example.notificationbar.aty.DaoHangActivity;
+import com.example.retrofit.retrofitTest;
 import com.example.seaechflowlayout.CustomizeActivity;
 import com.example.search.SearchActivity;
 import com.example.showbeatuy.ShowBeatuyActivity;
@@ -58,6 +59,7 @@ public class UIActivity extends AppCompatActivity {
         list.add("自动义View");
         list.add("flexboxlayout");
         list.add("Beauty");
+        list.add("请求");
         ButtonListAdapter buttonListAdapter = new ButtonListAdapter(this, list, myOnclicker);
         listView.setAdapter(buttonListAdapter);
         buttonListAdapter.notifyDataSetChanged();
@@ -134,7 +136,8 @@ public class UIActivity extends AppCompatActivity {
                 case 16:
                     intent = new Intent(UIActivity.this, ShowBeatuyActivity.class);
                     break;
-
+                case 17:
+                    return;
             }
             startActivity(intent);
         }
