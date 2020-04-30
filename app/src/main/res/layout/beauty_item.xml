@@ -3,7 +3,7 @@
     <data>
         <variable
             name="beatuygl"
-            type="com.example.showbeatuy.Beauty" />
+            type="com.example.retrofit.InfoGson" />
     </data>
 
 
@@ -19,14 +19,14 @@
         android:scaleType="centerCrop"
         android:layout_margin="2dp"
 
-        android:src="@{beatuygl.bitmap}"
+        app:imageUrl="@{beatuygl.url}"
         />
 
     <TextView
         android:id="@+id/beauty_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@{beatuygl.name}"
+        android:text="@{beatuygl.author}"
         android:layout_below="@+id/beauty_image" />
     <TextView
         android:id="@+id/beauty_age"
@@ -34,7 +34,7 @@
         android:layout_below="@+id/beauty_image"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@{beatuygl.age}"
+        android:text="@{beatuygl.desc}"
 
         />
 

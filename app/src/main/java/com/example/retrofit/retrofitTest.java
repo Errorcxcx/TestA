@@ -20,6 +20,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.ArrayList;
+import java.util.List;
 
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -33,15 +34,18 @@ public class retrofitTest {
     public Context mContext;
     public Handler mHandler;
     public InfoGson mInfoGson;
+    public ArrayList<InfoGson> list;
     public retrofitTest(Context context,Handler handler) {
         mContext = context;
         mHandler = handler;
+        list = new ArrayList<>();
     }
 
-    public InfoGson main(String category) {
+    public List<InfoGson> main(String category,int page) {
         OkHttpClient okHttpClient = new OkHttpClient();
+
         Request request = new Request.Builder()
-                .url("https://gank.io/api/v2/data/category/"+category+"/type/Girl/page/1/count/20")
+                .url("https://gank.io/api/v2/data/category/"+category+"/type/Girl/page/"+page+"/count/20")
                 .build();
         okHttpClient.newCall(request).enqueue(new Callback() {
             @Override
@@ -65,14 +69,14 @@ public class retrofitTest {
 //                    inputStream.close();
 //                    String line = response.body().string();
 //                    Log.d("retrofit", "onResponse: "+line);
+
                     Gson gson = new Gson();
 //                    mInfoGson = gson.fromJson(line, InfoGson.class);
                     String jsonData = response.body().string();
-                    ArrayList<InfoGson> list = new ArrayList<>();
-
+                    Log.d("retrofit", "onResponse: "+jsonData);
                     JsonObject Jobject = null;
                     try {
-                         Jobject = new JsonParser().parse(jsonData).getAsJsonObject();
+                        Jobject = new JsonParser().parse(jsonData).getAsJsonObject();
                         JsonArray jsonArray = Jobject.getAsJsonArray("data");
                         for (JsonElement info:jsonArray
                              ) {
@@ -80,6 +84,9 @@ public class retrofitTest {
                            InfoGson infoGson =  gson.fromJson(info,new TypeToken<InfoGson>(){}.getType());
                            list.add(infoGson);
                         }
+
+//                         Datas data= gson.fromJson(jsonData, new TypeToken<Datas>(){}.getType());
+//                        Log.d("retrofit", "onResponse: "+((Datas)data).data.get(1).getUrl());
 
                     } catch (Exception e) {
                         e.printStackTrace();
@@ -100,15 +107,14 @@ public class retrofitTest {
 //                            e.printStackTrace();
 //                        }
 //                    }
-//                    Log.d("retrofit", "onResponse: "+((InfoGson)list.get(1)));
-
+//                    Log.d("retrofit", "onResponse: "+((InfoGson)list.get(1)).getUrl());
                     mHandler.sendEmptyMessage(1);
 
 
                 }
             }
         });
-        return mInfoGson;
+
 //        Retrofit retrofit = new Retrofit.Builder()
 //                .addConverterFactory(GsonConverterFactory.create())
 //                .baseUrl("https://www.v2ex.com/api/")
@@ -141,5 +147,6 @@ public class retrofitTest {
 //
 //            }
 //        });
+        return list;
     }
 }

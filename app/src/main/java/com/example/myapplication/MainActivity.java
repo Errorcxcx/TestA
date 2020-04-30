@@ -1,24 +1,42 @@
 package com.example.myapplication;
 
+import androidx.annotation.IntRange;
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
+import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
+import android.net.ConnectivityManager;
+import android.net.NetworkCapabilities;
+import android.net.NetworkInfo;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import com.ashokvarma.bottomnavigation.BottomNavigationBar;
 import com.ashokvarma.bottomnavigation.BottomNavigationItem;
 import com.example.myapplication.RuntimePermission.CallActivity;
+import com.example.myapplication.update.MyDialog;
+import com.example.myapplication.update.UpdateChecker;
 import com.example.myapplication.util.ToastUtil;
 import com.example.myapplication.util.fragment.ShouYeFragment;
 import com.example.myapplication.util.fragment.ViewFragment;
@@ -34,6 +52,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationB
     public ViewPager viewPager;
     public List<Fragment> lists;
     public retrofitTest retrofitTest;
+    private AlertDialog alertDialog;
 
 
     @Override
@@ -42,6 +61,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationB
         setContentView(R.layout.activity_main);
 
         initView();
+        checkVersion();
 
     }
     public void initView(){
@@ -113,7 +133,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationB
         switch(item.getItemId()){
             case R.id.add_item:
                 ToastUtil.showMsg(getApplicationContext(),"点击了Add");
-                retrofitTest.main("Girl");
+                retrofitTest.main("Girl",3);
                 break;
             case R.id.remove_item:
                 ToastUtil.showMsg(getApplicationContext(),"点击了Remove");
@@ -136,5 +156,18 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationB
     public void onTabReselected(int position) {
 
     }
+    public void checkVersion(){
+        alertDialog = MyDialog.setProgressDialog(MainActivity.this,"网络连接失败");
+        alertDialog.dismiss();
+        checkNumber();
+    }
+    public void checkNumber(){
+        try{
+            UpdateChecker.checkForDialog(MainActivity.this);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
 
 }

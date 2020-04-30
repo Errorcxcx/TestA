@@ -7,6 +7,7 @@ import androidx.databinding.BaseObservable;
 import androidx.databinding.Bindable;
 import androidx.databinding.BindingAdapter;
 
+import com.bumptech.glide.Glide;
 import com.example.myapplication.BR;
 
 public class Beauty extends BaseObservable {
@@ -58,5 +59,8 @@ public class Beauty extends BaseObservable {
     @BindingAdapter("android:src")
     public static void setSrc(ImageView view, Bitmap bitmap) {
         view.setImageBitmap(bitmap);
+    }
+    @BindingAdapter("android:src")
+    public static void setImage(ImageView view, String url) {
     }
 }

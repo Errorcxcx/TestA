@@ -13,6 +13,7 @@ import com.example.base.BaseVH;
 import com.example.myapplication.R;
 import com.example.myapplication.databinding.BeautyItemBinding;
 import com.example.notificationbar.aty.AdapterOne;
+import com.example.retrofit.InfoGson;
 
 public class BeautyAdapter extends BaseAdapter<BeautyAdapter.BeautyViewHolder>{
 
@@ -35,7 +36,7 @@ public class BeautyAdapter extends BaseAdapter<BeautyAdapter.BeautyViewHolder>{
     @Override
     public void onBindVH(BeautyViewHolder holder, int position) {
         BeautyItemBinding beautyItemBinding = (BeautyItemBinding)holder.binding;
-        beautyItemBinding.setBeatuygl((Beauty) list.get(position));
+        beautyItemBinding.setBeatuygl((InfoGson) list.get(position));
 
     }
 
