@@ -37,6 +37,7 @@ public class DownLoadService extends IntentService {
         String appName = getString(getApplicationInfo().labelRes);
         int icon = getApplicationInfo().icon;
         String urlStr = intent.getStringExtra("url1");
+        Log.d("UpdateChecker", "onHandleIntent: "+urlStr);
         InputStream is = null;
         OutputStream out = null;
         try {
