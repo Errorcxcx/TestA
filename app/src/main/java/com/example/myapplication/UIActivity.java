@@ -6,11 +6,9 @@ import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ListView;
 
 import androidx.annotation.RequiresApi;
-import androidx.annotation.UiThread;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.databinding.viewmodel.ViewModeOne;
@@ -19,7 +17,7 @@ import com.example.myapplication.gridview.GridViewActivity;
 import com.example.myapplication.listview.ListViewActivity;
 import com.example.myapplication.util.ButtonListAdapter;
 import com.example.notificationbar.aty.DaoHangActivity;
-import com.example.retrofit.retrofitTest;
+import com.example.paotui.activity.LoginActivity;
 import com.example.seaechflowlayout.CustomizeActivity;
 import com.example.search.SearchActivity;
 import com.example.showbeatuy.ShowBeatuyActivity;
@@ -60,6 +58,7 @@ public class UIActivity extends AppCompatActivity {
         list.add("flexboxlayout");
         list.add("Beauty");
         list.add("请求");
+        list.add("CAPP");
         ButtonListAdapter buttonListAdapter = new ButtonListAdapter(this, list, myOnclicker);
         listView.setAdapter(buttonListAdapter);
         buttonListAdapter.notifyDataSetChanged();
@@ -138,6 +137,9 @@ public class UIActivity extends AppCompatActivity {
                     break;
                 case 17:
                     return;
+                case 18:
+                    intent = new Intent(UIActivity.this, LoginActivity.class);
+                    break;
             }
             startActivity(intent);
         }

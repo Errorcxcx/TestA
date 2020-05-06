@@ -25,4 +25,17 @@
     <color name="default_orange">#ff8040</color>
     <color name="default_orange_light">#ffc6aa</color>
     <color name="default_orange_hint">#ff9968</color>
+    <color name="main_btn">#ff7544</color>
+
+    <color name="text_main">#49496a</color>
+
+    <color name="text_fu2">#838895</color>
+
+    <color name="main_bac">#f8f8f8</color>
+
+    <color name="main_white">#fff</color>
+
+    <color name="main_btn1">#2196F3</color>
+
+    <color name="main_yellow">#FEC62E</color>
 </resources>

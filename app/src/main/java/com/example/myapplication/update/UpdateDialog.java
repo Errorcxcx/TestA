@@ -27,7 +27,7 @@ public class UpdateDialog {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             if((downloadUrl!=null)&&(downloadurl2!=null)){
-                                goToDownload(context,downloadUrl);
+                                goToDownload(context,downloadurl2);
 //                                goToDownload(context,downloadurl2);
 
                             }

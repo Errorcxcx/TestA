@@ -216,7 +216,7 @@ public class InfoGson extends BaseObservable {
     }
 
     @BindingAdapter({"app:imageUrl"})
-    public static   void loadImage(ImageView view,String url){
+    public static  void loadImage(ImageView view,String url){
         Glide.with(view.getContext())
                 .load(url)
                 .transform(new FillSpace())
