@@ -92,13 +92,14 @@
                 android:text="发送了一条验证码"
                 android:textSize="12sp"
                 android:textColor="@color/text_main"/>
+
             <ImageView
                 android:id="@+id/iv_up_check"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
-                android:onClick="@{change}"
-                android:src="@drawable/ic_edit_black_24dp"/>
+                android:onClick="@{checkmodel::onIVClose}"
+                android:src="@drawable/ic_edit_black_24dp" />
         </LinearLayout>
 
 
@@ -133,7 +134,7 @@
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
             android:padding="10dp"
-            android:text="59s"
+            android:text="@{checkmodel.timer}"
             android:textColor="@color/main_bac"
             android:textSize="14sp"
             android:textStyle="bold"

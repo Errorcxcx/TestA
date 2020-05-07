@@ -13,11 +13,11 @@ public class MyDao {
     private MySqliteHelper sqliteHelper ;
     private static volatile MyDao myDao;
     SQLiteDatabase db;
-    public MyDao(Context context) {
+    private MyDao(Context context) {
         sqliteHelper = new MySqliteHelper(context);
     }
 
-    public MyDao getInstance(Context context){
+    public static MyDao getInstance(Context context){
         if(myDao == null){
             synchronized (MyDao.class){
                 if(myDao == null){

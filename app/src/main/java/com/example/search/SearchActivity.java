@@ -67,7 +67,7 @@ public class SearchActivity extends AppCompatActivity implements View.OnClickLis
 
 
     private void initData(){
-        myDao = new MyDao(this);
+        myDao =  MyDao.getInstance(this);
         searchRecordsList = new ArrayList<>();
         tempList = new ArrayList<>();
         resersedList();

@@ -17,7 +17,7 @@ public class CheckActivity extends BaseAty<ActivityCheckBinding> {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        model = new CheckCodeViewModel(this,phoneNumber);
+        model = new CheckCodeViewModel(this,phoneNumber,binding);
         binding.setCheckmodel(model);
 
     }

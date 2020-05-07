@@ -32,7 +32,7 @@ public class UIActivity extends AppCompatActivity {
     private ListView listView;
 
     private List<String> list;
-
+    public ButtonListAdapter buttonListAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,7 +59,7 @@ public class UIActivity extends AppCompatActivity {
         list.add("Beauty");
         list.add("请求");
         list.add("CAPP");
-        ButtonListAdapter buttonListAdapter = new ButtonListAdapter(this, list, myOnclicker);
+        buttonListAdapter = new ButtonListAdapter(this, list, myOnclicker);
         listView.setAdapter(buttonListAdapter);
         buttonListAdapter.notifyDataSetChanged();
 
@@ -136,6 +136,9 @@ public class UIActivity extends AppCompatActivity {
                     intent = new Intent(UIActivity.this, ShowBeatuyActivity.class);
                     break;
                 case 17:
+                    list.add("dddddd");
+//                    buttonListAdapter.notifyDataSetChanged();
+
                     return;
                 case 18:
                     intent = new Intent(UIActivity.this, LoginActivity.class);
