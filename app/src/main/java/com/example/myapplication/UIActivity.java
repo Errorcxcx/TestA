@@ -18,6 +18,9 @@ import com.example.myapplication.listview.ListViewActivity;
 import com.example.myapplication.util.ButtonListAdapter;
 import com.example.notificationbar.aty.DaoHangActivity;
 import com.example.paotui.activity.LoginActivity;
+import com.example.retrofit.Datas;
+import com.example.retrofit.myhttp.IJsonTrans;
+import com.example.retrofit.myhttp.NeHttp;
 import com.example.seaechflowlayout.CustomizeActivity;
 import com.example.search.SearchActivity;
 import com.example.showbeatuy.ShowBeatuyActivity;
@@ -59,6 +62,7 @@ public class UIActivity extends AppCompatActivity {
         list.add("Beauty");
         list.add("请求");
         list.add("CAPP");
+        list.add("手写网络请求框架");
         buttonListAdapter = new ButtonListAdapter(this, list, myOnclicker);
         listView.setAdapter(buttonListAdapter);
         buttonListAdapter.notifyDataSetChanged();
@@ -130,7 +134,7 @@ public class UIActivity extends AppCompatActivity {
                     intent = new Intent(UIActivity.this, CustomizeActivity.class);
                     break;
                 case 15:
-                    intent = new Intent(UIActivity.this,FlexBoxLayoutActivity.class);
+                    intent = new Intent(UIActivity.this, FlexBoxLayoutActivity.class);
                     break;
                 case 16:
                     intent = new Intent(UIActivity.this, ShowBeatuyActivity.class);
@@ -143,6 +147,21 @@ public class UIActivity extends AppCompatActivity {
                 case 18:
                     intent = new Intent(UIActivity.this, LoginActivity.class);
                     break;
+                case 19:
+                    NeHttp.setJsonRequest("http://ate.sys.miui.com/mtbf/download.spring?filename=signed_PLATFORM_app-debug.apk&path=apk",
+                            null,
+                            Datas.class, new IJsonTrans<Datas>() {
+                                @Override
+                                public void onSuccess(Datas m) {
+                                    Log.d("NeHttp", "onSuccess: "+m.toString());
+                                }
+
+                                @Override
+                                public void onFailure() {
+
+                                }
+                            });
+                    return;
             }
             startActivity(intent);
         }

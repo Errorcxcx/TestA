@@ -77,10 +77,12 @@ public class NetUtils {
             System.out.println("aaaa333aaaaa");
 
         }
+        System.out.println("bbbbbbbbbb");
+
         return "555";
     }
     public static void main(String[] args) throws Exception {
-        Queue list = new LinkedList();
+//        Queue list = new LinkedList();
 
        String i = A();
        System.out.println(i);
