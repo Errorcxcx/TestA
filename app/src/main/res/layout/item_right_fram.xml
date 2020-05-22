@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp"
+    >
+    <ImageView
+        android:id="@+id/rv_r_image"
+        android:layout_width="150dp"
+        android:layout_height="150dp"/>
+
+    <LinearLayout
+        android:id="@+id/rv_r_ll"
+        android:layout_width="200dp"
+        android:layout_height="30dp"
+        android:layout_marginLeft="20dp"
+        android:layout_toRightOf="@id/rv_r_image"
+        android:orientation="horizontal">
+
+        <TextView
+            android:text="小米手机天下第一"
+            android:textSize="24sp"
+            android:id="@+id/rv_r_name"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textColor="@color/black" />
+    </LinearLayout>
+    <TextView
+        android:textSize="20sp"
+        android:id="@+id/rv_r_make"
+        android:layout_marginTop="5dp"
+        android:layout_below="@id/rv_r_ll"
+        android:layout_marginLeft="20dp"
+        android:layout_toRightOf="@id/rv_r_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="主要原料：高通、三星"/>
+    <TextView
+        android:id="@+id/rv_v_haoping"
+        android:textSize="20sp"
+        android:layout_marginTop="5dp"
+        android:layout_below="@id/rv_r_make"
+        android:layout_marginLeft="20dp"
+        android:layout_toRightOf="@id/rv_r_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="月售999，好评100%"/>
+    <LinearLayout
+        android:layout_toRightOf="@id/rv_r_image"
+        android:layout_below="@id/rv_v_haoping"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_gravity="center"
+            android:id="@+id/rv_v_price"
+            android:textSize="20sp"
+            android:layout_marginTop="5dp"
+            android:layout_below="@id/rv_v_haoping"
+            android:layout_marginLeft="20dp"
+            android:layout_toRightOf="@id/rv_r_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/red"
+            android:text="$4999"/>
+
+        <ImageView
+            android:layout_gravity="center"
+            android:layout_marginLeft="100dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_below="@id/rv_v_haoping"
+            android:layout_marginTop="5dp"
+            android:layout_toRightOf="@+id/rv_v_price"
+            android:src="@mipmap/add" />
+
+
+    </LinearLayout>
+
+
+
+</RelativeLayout>

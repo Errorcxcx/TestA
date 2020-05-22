@@ -14,6 +14,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.databinding.viewmodel.ViewModeOne;
 import com.example.exief.GetExiefMessage;
 import com.example.myapplication.gridview.GridViewActivity;
+import com.example.myapplication.liandong.aty.LianDongActivity;
 import com.example.myapplication.listview.ListViewActivity;
 import com.example.myapplication.util.ButtonListAdapter;
 import com.example.notificationbar.aty.DaoHangActivity;
@@ -63,6 +64,7 @@ public class UIActivity extends AppCompatActivity {
         list.add("请求");
         list.add("CAPP");
         list.add("手写网络请求框架");
+        list.add("Recycler联动");
         buttonListAdapter = new ButtonListAdapter(this, list, myOnclicker);
         listView.setAdapter(buttonListAdapter);
         buttonListAdapter.notifyDataSetChanged();
@@ -162,6 +164,9 @@ public class UIActivity extends AppCompatActivity {
                                 }
                             });
                     return;
+                case 20:
+                    intent = new Intent(UIActivity.this, LianDongActivity.class);
+                    break;
             }
             startActivity(intent);
         }

@@ -2,12 +2,14 @@ package com.example.paotui.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 
 import androidx.annotation.Nullable;
 
 import com.example.myapplication.R;
 import com.example.myapplication.databinding.ActivityCheckBinding;
 import com.example.paotui.base.BaseAty;
+import com.example.paotui.manager.UserManager;
 import com.example.paotui.viewmodel.CheckCodeViewModel;
 
 public class CheckActivity extends BaseAty<ActivityCheckBinding> {
@@ -41,4 +43,13 @@ public class CheckActivity extends BaseAty<ActivityCheckBinding> {
     protected void initListener() {
 
     }
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode == 1000 && resultCode == RESULT_OK){
+            finish();
+            Log.d("paotui", "userid "+ UserManager.getInstance().getUser().getObjectId());
+        }
+    }
+
 }

@@ -1,30 +1,24 @@
 package com.example.paotui.activity;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 
 import androidx.annotation.Nullable;
 
 import com.example.myapplication.R;
-import com.example.myapplication.databinding.ActivityLoginBinding;
+import com.example.myapplication.databinding.AcyivityHomeBinding;
 import com.example.paotui.base.BaseAty;
-import com.example.paotui.manager.UserManager;
-import com.example.paotui.viewmodel.LoginViewModel;
+import com.example.paotui.viewmodel.CheckCodeViewModel;
 
-public class LoginActivity extends BaseAty<ActivityLoginBinding> {
-    private LoginViewModel model = null;
+public class HomeActivity extends BaseAty<AcyivityHomeBinding> {
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        model = new LoginViewModel(this);
-        binding.setLoginmodel(model);
 
     }
-
     @Override
     protected int getLayout() {
-        return R.layout.activity_login;
+        return R.layout.acyivity_home;
     }
 
     @Override

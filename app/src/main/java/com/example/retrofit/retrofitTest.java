@@ -109,9 +109,7 @@ public class retrofitTest {
 //                    }
 //                    Log.d("retrofit", "onResponse: "+((InfoGson)list.get(1)).getUrl());
                     mHandler.sendEmptyMessage(1);
-
-
-                }
+              }
             }
         });
 

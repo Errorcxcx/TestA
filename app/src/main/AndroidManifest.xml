@@ -29,6 +29,8 @@
         <activity android:name=".TestActivity" />
         <activity android:name="com.example.paotui.activity.LoginActivity"/>
         <activity android:name="com.example.paotui.activity.CheckActivity"/>
+        <activity android:name="com.example.paotui.activity.HomeActivity"/>
+        <activity android:name=".liandong.aty.LianDongActivity"/>
         <activity android:name=".ThirdActivity">
             <intent-filter>
                 <action android:name="android.intent.action.VIeW" />

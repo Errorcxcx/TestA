@@ -1,6 +1,7 @@
 package com.example.utils;
 
 import android.accounts.NetworkErrorException;
+import android.os.Build;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -84,9 +85,23 @@ public class NetUtils {
     public static void main(String[] args) throws Exception {
 //        Queue list = new LinkedList();
 
-       String i = A();
-       System.out.println(i);
+//       String i = A();
+//       System.out.println(i);
 //        sort(new int[]{4,5,8,6,1,});
+        String[] cmd = { "/system/xbin/su", "-c", "cat /sys/kernel/debug/dma_buf/dmaprocs |grep "+770 };
+
+        String[] list;
+        // List<String> memInfo = new ArrayList<String>();
+        Process p = Runtime.getRuntime().exec(cmd);
+        BufferedReader br = new BufferedReader(new InputStreamReader(p.getInputStream()));
+        String strLine = br.readLine();
+        System.out.println(strLine);
+
+
+
+//		if(strLine == null){
+//			memInfo.set(num, memInfo.get(num)+","+0);
+//		}
     }
     public static void sort(int[] strings){
         for(int i = 0;i<strings.length-1;i++){

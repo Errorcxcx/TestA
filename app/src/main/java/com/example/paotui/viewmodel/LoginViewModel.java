@@ -43,7 +43,7 @@ public class LoginViewModel extends BaseModel {
                 if(e == null){
                     CheckActivity.openAtyWithDataForResult(mContext,CheckActivity.class,"phone",etPhoneNumber.get(),1000);
                 }else {
-                    XToast.warning(mContext,"发送失败"+e.getErrorCode()+"--").show();
+                    XToast.warning(mContext,"发送失败"+e.getErrorCode()+"--"+e.getMessage()).show();
                     e.printStackTrace();
                 }
             }
