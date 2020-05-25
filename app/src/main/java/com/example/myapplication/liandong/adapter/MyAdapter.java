@@ -1,6 +1,5 @@
 package com.example.myapplication.liandong.adapter;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Color;
 import android.util.Log;
@@ -14,7 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 
 import com.example.myapplication.R;
-import com.example.myapplication.liandong.model.Case;
+import com.example.myapplication.liandong.model.PhoneBrand;
 
 import java.util.HashMap;
 import java.util.List;
@@ -24,13 +23,13 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     public Context mContext;
     public List list;
     public OnClickItemListener listener;
-    private HashMap<Case,Boolean> isClicks;
+    private HashMap<PhoneBrand,Boolean> isClicks;
     public MyAdapter(Context context,OnClickItemListener listener) {
         this.listener = listener;
         mContext = context;
 
     }
-    public void setDatas(List list,HashMap<Case,Boolean> isClicks){
+    public void setDatas(List list,HashMap<PhoneBrand,Boolean> isClicks){
         if(null !=list && null!=isClicks){
             this.list = list;
             this.isClicks = isClicks;
@@ -53,11 +52,11 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         }else {
             holder.tv.setBackgroundColor(Color.parseColor("#259B24"));
 
-            isClicks.put((Case)(list.get(position)),false);
+            isClicks.put((PhoneBrand)(list.get(position)),false);
         }
-        holder.tv.setText(((Case)list.get(position)).getName());
-        Log.d("hahaha", "onBindViewHolder: "+((Case)list.get(position)).getName());
-        holder.tv.setOnClickListener(v->listener.onClickItem(((Case)list.get(position))));
+        holder.tv.setText(((PhoneBrand)list.get(position)).getName());
+        Log.d("hahaha", "onBindViewHolder: "+((PhoneBrand)list.get(position)).getName());
+        holder.tv.setOnClickListener(v->listener.onClickItem(((PhoneBrand)list.get(position))));
     }
 
     @Override
@@ -76,6 +75,6 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     }
 
     public interface OnClickItemListener{
-        void onClickItem(Case c);
+        void onClickItem(PhoneBrand c);
     }
 }

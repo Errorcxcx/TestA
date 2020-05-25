@@ -16,7 +16,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.myapplication.R;
 import com.example.myapplication.liandong.adapter.MyAdapter;
-import com.example.myapplication.liandong.model.Case;
+import com.example.myapplication.liandong.model.Phone;
+import com.example.myapplication.liandong.model.PhoneBrand;
 import com.example.myapplication.liandong.viewmodel.MyViewModel;
 
 import java.util.ArrayList;
@@ -29,7 +30,7 @@ public class SYLeftFragment extends Fragment {
     private MyViewModel model;
     private RecyclerView recyclerView;
     private List list;
-    private HashMap<Case,Boolean> isClicks;
+    private HashMap<PhoneBrand,Boolean> isClicks;
     private MyAdapter adapter;
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -43,21 +44,45 @@ public class SYLeftFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_left, container, false);
 
         list = new ArrayList();
-        Case c1 = new Case("小米",1,"sss");
-        Case c2 = new Case("苹果",1,"sss");
-        Case c3 = new Case("oppo",1,"sss");
+        PhoneBrand c1 = new PhoneBrand("小米");
+        PhoneBrand c2 = new PhoneBrand("苹果");
+        PhoneBrand c3 = new PhoneBrand("oppo");
 
-        Case c4 = new Case("华为",1,"sss");
+        PhoneBrand c4 = new PhoneBrand("华为");
 
-        Case c5 = new Case("三星",1,"sss");
-        Case c6 = new Case("诺基亚",1,"sss");
+        PhoneBrand c5 = new PhoneBrand("三星");
+        PhoneBrand c6 = new PhoneBrand("诺基亚");
 
-        Case c7 = new Case("VIVO",1,"sss");
+        PhoneBrand c7 = new PhoneBrand("VIVO");
 
-        Case c8 = new Case("MOTO",1,"sss");
-        Case c9 = new Case("SONY",1,"sss");
-        Case c10 = new Case("佳能",1,"sss");
-        Case c11 = new Case("格力",1,"sss");
+        PhoneBrand c8 = new PhoneBrand("MOTO");
+        PhoneBrand c9 = new PhoneBrand("SONY");
+        PhoneBrand c10 = new PhoneBrand("佳能");
+        PhoneBrand c11 = new PhoneBrand("格力");
+
+        Phone p1 = new Phone("Mi 10 Pro","5999");
+        Phone p2 = new Phone("Mi 10 Pro","5999");
+        Phone p3 = new Phone("Mi 10 Pro","5999");
+        Phone p4 = new Phone("Mi 10 Pro","5999");
+        Phone p5 = new Phone("Mi 10 Pro","5999");
+        List<Phone> phones = new ArrayList<>();
+        phones.add(p1);
+        phones.add(p2);
+        phones.add(p3);
+        phones.add(p4);
+        phones.add(p5);
+        c1.setPhoneList(phones);
+        c2.setPhoneList(phones);
+        c3.setPhoneList(phones);
+        c4.setPhoneList(phones);
+        c5.setPhoneList(phones);
+        c6.setPhoneList(phones);
+        c7.setPhoneList(phones);
+        c8.setPhoneList(phones);
+        c9.setPhoneList(phones);
+        c10.setPhoneList(phones);
+        c11.setPhoneList(phones);
+
 
         list.add(c1);
         list.add(c2);
@@ -105,8 +130,8 @@ public class SYLeftFragment extends Fragment {
         recyclerView.setAdapter(adapter);
     }
     public void huiFu(){
-        Set<Case> set =isClicks.keySet();
-        for (Case c:set
+        Set<PhoneBrand> set =isClicks.keySet();
+        for (PhoneBrand c:set
              ) {
             isClicks.put(c,false);
         }
