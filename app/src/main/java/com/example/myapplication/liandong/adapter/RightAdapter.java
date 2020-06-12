@@ -1,6 +1,7 @@
 package com.example.myapplication.liandong.adapter;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,7 +28,7 @@ public class RightAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
     public int mItemCount;
 
     public List<PhoneBrand> mMenuList;
-    public RightAdapter(Context context, ArrayList<PhoneBrand> mMenuList) {
+    public RightAdapter(Context context, List<PhoneBrand> mMenuList) {
         mContext = context;
         this.mMenuList = mMenuList;
         this.mItemCount = mMenuList.size();
@@ -76,8 +77,10 @@ public class RightAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
         }else {
             final RightViewHolder rightViewHolder = (RightViewHolder)holder;
             if(rightViewHolder!=null){
-                final P
-                rightViewHolder.right_phone_name_tv.setText();
+                final Phone phone = getPhoneByPosition(position);
+
+                rightViewHolder.right_phone_name_tv.setText(phone.getName());
+                rightViewHolder.right_phone_price_tv.setText(phone.getPrice());
             }
         }
     }
@@ -89,6 +92,19 @@ public class RightAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
             }else {
                 position -=phoneBrand.getPhoneList().size()+1;
             }
+        }
+        return null;
+    }
+    public PhoneBrand getPhoneBrandByPosition(int position){
+        for (PhoneBrand phonebrand:mMenuList
+             ) {
+            if(position==0) return phonebrand;
+            if(position>0 && position<=phonebrand.getPhoneList().size()){
+                return phonebrand;
+            }else {
+                position -= phonebrand.getPhoneList().size()+1;
+            }
+
         }
         return null;
     }
@@ -105,10 +121,14 @@ public class RightAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
         int sum = 0;
         for(PhoneBrand phoneBrand : mMenuList){
             if(sum == position){
+                Log.d("weizhi", "onBindViewHolder: pppppppp");
+
                 return phoneBrand;
             }
-            sum = phoneBrand.getPhoneList().size()+1;
+            sum += phoneBrand.getPhoneList().size()+1;
         }
+        Log.d("weizhi", "onBindViewHolder: nnnnnnnnnn"+sum);
+
         return null;
     }
 

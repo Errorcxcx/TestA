@@ -16,7 +16,6 @@
         android:layout_marginTop="0dp" />
 
     <FrameLayout
-        android:background="@color/red"
         android:id="@+id/right_frag"
         android:layout_below="@id/banner"
         android:layout_alignParentRight="true"

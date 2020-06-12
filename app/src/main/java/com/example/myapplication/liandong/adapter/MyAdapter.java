@@ -29,6 +29,9 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         mContext = context;
 
     }
+    public interface OnClickItemListener{
+        public void onLeftItemSelected(int position,boolean bol);
+    }
     public void setDatas(List list,HashMap<PhoneBrand,Boolean> isClicks){
         if(null !=list && null!=isClicks){
             this.list = list;
@@ -45,7 +48,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        Log.d("hahaha", "onBindViewHolder: "+isClicks.values());;
+        Log.d("hahaha", "onBindViewHolder: "+isClicks.values());
         if(isClicks.get(list.get(position))){
             holder.tv.setBackgroundColor(Color.parseColor("#ff2121"));
 
@@ -56,7 +59,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         }
         holder.tv.setText(((PhoneBrand)list.get(position)).getName());
         Log.d("hahaha", "onBindViewHolder: "+((PhoneBrand)list.get(position)).getName());
-        holder.tv.setOnClickListener(v->listener.onClickItem(((PhoneBrand)list.get(position))));
+        holder.tv.setOnClickListener(v -> notifyItemSelected(position,true));
     }
 
     @Override
@@ -73,8 +76,12 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         }
 
     }
+    public void setSelected(int selectedNum,boolean bol){
+        Log.d("liandong", "setSelected: "+selectedNum);
+        notifyItemSelected(selectedNum,bol);
+    }
 
-    public interface OnClickItemListener{
-        void onClickItem(PhoneBrand c);
+    private void notifyItemSelected(int position,boolean bol){
+        listener.onLeftItemSelected(position,bol);
     }
 }
